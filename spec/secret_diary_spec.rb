@@ -20,6 +20,12 @@ require_relative '../lib/secret_diary'
 RSpec.describe SecretDiary do
   context "when locked" do
     pending "refuses to be read"
+    # Arrange
+    SecretDiary = SecretDiary.new
+    
+    # Act
+
+    #Assert
 
     pending "refuses to be written"
   end
@@ -28,5 +34,20 @@ RSpec.describe SecretDiary do
     pending "gets read"
 
     pending "gets written"
+  end
+end
+
+
+describe FileSystem do
+  it 'can add items to storage' do
+    # Arrange
+    file_system = FileSystem.new
+    file = File.new
+
+    # Act
+    file_system.store(file)
+
+    #Assert
+    expect(file_system.storage).to include(file)
   end
 end
